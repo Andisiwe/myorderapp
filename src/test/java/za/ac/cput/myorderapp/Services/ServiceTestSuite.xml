@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<suite name="ServiceTest">
+    <test name="TestService">
+        <classes>
+            <class name="za.ac.cput.myorderapp.Services.AuditServiceTest"/>
+            <class name="za.ac.cput.myorderapp.Services.CustomerServiceTest"/>
+            <class name="za.ac.cput.myorderapp.Services.OrderServiceTest"/>
+            <class name="za.ac.cput.myorderapp.Services.TestPizzaService"/>
+            <class name="za.ac.cput.myorderapp.Services.ToppingServiceTest"/>
+        </classes>
+    </test>
+</suite>

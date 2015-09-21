@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<suite name="RepositoryTest">
+    <test name="TestCrud">
+        <classes>
+            <class name="za.ac.cput.myorderapp.Repository.TestCrudAudit"/>
+            <class name="za.ac.cput.myorderapp.Repository.TestCrudBase"/>
+            <class name="za.ac.cput.myorderapp.Repository.TestCrudCustomer"/>
+            <class name="za.ac.cput.myorderapp.Repository.TestCrudOrder"/>
+            <class name="za.ac.cput.myorderapp.Repository.TestCrudPizza"/>
+            <class name="za.ac.cput.myorderapp.Repository.TestCrudTopping"/>
+
+        </classes>
+    </test>
+</suite>
