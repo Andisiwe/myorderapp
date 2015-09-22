@@ -17,13 +17,13 @@ import java.util.*;
  */
 public class TestCustomer {
 
-    @Before
+    //@Before
     public void setUp() throws Exception {
 
 
     }
 
-    @Test
+    //@Test
     public void testCreateCustomer() throws Exception {
         Map<String, String>addr = new HashMap<String, String>();
         addr.put("physicalAddress", "18 Harrington street");
@@ -45,7 +45,7 @@ public class TestCustomer {
 
     }
 
-    @Test
+   // @Test
     public void testUpdatedCustomer() throws Exception {
         Map<String, String>addr = new HashMap<String, String>();
         addr.put("physicalAddress", "18 Harrington street");

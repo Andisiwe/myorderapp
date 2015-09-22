@@ -6,7 +6,7 @@ import org.junit.runners.Suite;
 /**
  * Created by student on 2015/04/24.
  */
-@RunWith(Suite.class)
+/*@RunWith(Suite.class)
 @Suite.SuiteClasses({
         TestCustomer.class,
         TestOrder.class,
@@ -18,4 +18,4 @@ import org.junit.runners.Suite;
         TestTopping.class
 })
 public class DomainTestSuite {
-}
+}*/

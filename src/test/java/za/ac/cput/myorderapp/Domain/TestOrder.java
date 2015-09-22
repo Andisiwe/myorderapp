@@ -13,13 +13,13 @@ import java.util.List;
  * Created by student on 2015/04/24.
  */
 public class TestOrder {
-    @Before
+   // @Before
     public void setUp() throws Exception {
 
 
     }
 
-    @Test
+    //@Test
     public void testCreateOrder() throws Exception {
         //List<Pizza> pizzas = new ArrayList<>();
         Date date = new Date();

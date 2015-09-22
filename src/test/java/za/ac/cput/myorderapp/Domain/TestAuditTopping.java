@@ -13,13 +13,13 @@ import java.util.List;
  * Created by Andies on 2015-05-14.
  */
 public class TestAuditTopping {
-    @Before
+    //@Before
     public void setUp() throws Exception {
 
 
     }
 
-    @Test
+  //  @Test
     public void testCreateAudit() throws Exception {
         Date date = new Date();
         java.sql.Date sqlDate = new java.sql.Date(date.getTime());

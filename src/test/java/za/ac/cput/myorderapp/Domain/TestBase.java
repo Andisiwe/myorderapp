@@ -13,13 +13,13 @@ import java.util.List;
  * Created by Andies on 2015-05-14.
  */
 public class TestBase {
-    @Before
+   // @Before
     public void setUp() throws Exception {
 
 
     }
 
-    @Test
+    //@Test
     public void testCreateBase() throws Exception {
        // Pizza pizza = PizzaFactory.createPizza("Something meaty", 60);
         List<Pizza> pizzas = new ArrayList<>();

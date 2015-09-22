@@ -12,13 +12,13 @@ import java.util.Map;
  * Created by Andies on 2015-05-11.
  */
 public class TestContactAddress {
-    @Before
+   // @Before
     public void setUp() throws Exception {
 
 
     }
 
-    @Test
+    //@Test
     public void testCreate() throws Exception {
         Map<String,String>values = new HashMap<String, String>();
         values.put("physicalAddress","18 Harrington street");
@@ -29,7 +29,7 @@ public class TestContactAddress {
 
     }
 
-    @Test
+    //@Test
     public void testUpdate() throws Exception {
         Map<String,String>values = new HashMap<String, String>();
         values.put("physicalAddress","18 Harrington street");

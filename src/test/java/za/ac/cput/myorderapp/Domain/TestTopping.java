@@ -11,13 +11,13 @@ import java.util.List;
  * Created by Andies on 2015-05-14.
  */
 public class TestTopping {
-    @Before
+   // @Before
     public void setUp() throws Exception {
 
 
     }
 
-    @Test
+    //@Test
     public void testCreateTopping() throws Exception {
         List<AuditTopping> auditToppings = new ArrayList<>();
         Topping topping = ToppingFactory.createTopping("Pine Apple", 5,auditToppings);
