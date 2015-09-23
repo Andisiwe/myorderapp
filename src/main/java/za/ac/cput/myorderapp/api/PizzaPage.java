@@ -24,7 +24,7 @@ public class PizzaPage {
     @Autowired
     private PizzaService service;
 
-    @RequestMapping(value = "/pizza", method = RequestMethod.GET)
+    @RequestMapping(value = "pizza", method = RequestMethod.GET)
     public ResponseEntity<List<Pizza>> listAllPizzas(){
         List<Pizza> Pizzas = service.findAll();
         if(Pizzas.isEmpty()){
@@ -33,17 +33,17 @@ public class PizzaPage {
         return new ResponseEntity<List<Pizza>>(Pizzas, HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/pizza/create", method = RequestMethod.POST)
+    @RequestMapping(value = "pizza/create", method = RequestMethod.POST)
     public ResponseEntity<Void> createPizza(@RequestBody Pizza pizza, UriComponentsBuilder ucBuilder) {
         System.out.println("Creating Pizza " + pizza.getName());
         service.save(pizza);
 
         HttpHeaders headers = new HttpHeaders();
-        headers.setLocation(ucBuilder.path("/pizza/{id}").buildAndExpand(pizza.getPizza_no()).toUri());
+        headers.setLocation(ucBuilder.path("pizza/{id}").buildAndExpand(pizza.getPizza_no()).toUri());
         return new ResponseEntity<Void>(headers, HttpStatus.CREATED);
     }
 
-    @RequestMapping(value = "/pizza/update/{id}", method = RequestMethod.PUT)
+    @RequestMapping(value = "pizza/update/{id}", method = RequestMethod.PUT)
     public ResponseEntity<Pizza> updatePizza(@PathVariable("id") long id, @RequestBody Pizza pizza) {
         System.out.println("Updating Pizza " + id);
         Pizza currentPizza = service.findById(id);
@@ -60,7 +60,7 @@ public class PizzaPage {
         return new ResponseEntity<Pizza>(updatedPizza, HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/pizza/delete/{id}", method = RequestMethod.DELETE)
+    @RequestMapping(value = "pizza/delete/{id}", method = RequestMethod.DELETE)
     public ResponseEntity<Pizza> deletePizza(@PathVariable("id") long id) {
         System.out.println("Fetching & Deleting Pizza with id " + id);
 

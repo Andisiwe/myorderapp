@@ -23,7 +23,7 @@ public class BasePage {
     @Autowired
     private BaseService service;
 
-    @RequestMapping(value = "/base", method = RequestMethod.GET)
+    @RequestMapping(value = "base", method = RequestMethod.GET)
     public ResponseEntity<List<Base>> listAllBases(){
         List<Base> Bases = service.findAll();
         if(Bases.isEmpty()){
@@ -32,17 +32,17 @@ public class BasePage {
         return new ResponseEntity<List<Base>>(Bases, HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/base/create", method = RequestMethod.POST)
+    @RequestMapping(value = "base/create", method = RequestMethod.POST)
     public ResponseEntity<Void> createBase(@RequestBody Base base, UriComponentsBuilder ucBuilder) {
         System.out.println("Creating Base " + base.getPizzaSize());
         service.save(base);
 
         HttpHeaders headers = new HttpHeaders();
-        headers.setLocation(ucBuilder.path("/base/{id}").buildAndExpand(base.getBaseCode()).toUri());
+        headers.setLocation(ucBuilder.path("base/{id}").buildAndExpand(base.getBaseCode()).toUri());
         return new ResponseEntity<Void>(headers, HttpStatus.CREATED);
     }
 
-    @RequestMapping(value = "/base/update/{id}", method = RequestMethod.PUT)
+    @RequestMapping(value = "base/update/{id}", method = RequestMethod.PUT)
     public ResponseEntity<Base> updateBase(@PathVariable("id") long id, @RequestBody Base base) {
         System.out.println("Updating Base " + id);
         Base currentBase = service.findById(id);
@@ -59,7 +59,7 @@ public class BasePage {
         return new ResponseEntity<Base>(updatedBase, HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/base/delete/{id}", method = RequestMethod.DELETE)
+    @RequestMapping(value = "base/delete/{id}", method = RequestMethod.DELETE)
     public ResponseEntity<Base> deleteBase(@PathVariable("id") long id) {
         System.out.println("Fetching & Deleting Base with id " + id);
 

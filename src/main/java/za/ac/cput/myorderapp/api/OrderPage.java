@@ -24,7 +24,7 @@ public class OrderPage {
     @Autowired
     private OrderService service;
 
-    @RequestMapping(value = "/order", method = RequestMethod.GET)
+    @RequestMapping(value = "order", method = RequestMethod.GET)
     public ResponseEntity<List<Orders>> listAllOrders(){
         List<Orders> orders = service.findAll();
         if(orders.isEmpty()){
@@ -33,17 +33,17 @@ public class OrderPage {
         return new ResponseEntity<List<Orders>>(orders, HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/order/create", method = RequestMethod.POST)
+    @RequestMapping(value = "order/create", method = RequestMethod.POST)
     public ResponseEntity<Void> createOrder(@RequestBody Orders orders, UriComponentsBuilder ucBuilder) {
         System.out.println("Creating Order " + orders.getOrderNo());
         service.save(orders);
 
         HttpHeaders headers = new HttpHeaders();
-        headers.setLocation(ucBuilder.path("/order/{id}").buildAndExpand(orders.getOrderNo()).toUri());
+        headers.setLocation(ucBuilder.path("order/{id}").buildAndExpand(orders.getOrderNo()).toUri());
         return new ResponseEntity<Void>(headers, HttpStatus.CREATED);
     }
 
-    @RequestMapping(value = "/order/update/{id}", method = RequestMethod.PUT)
+    @RequestMapping(value = "order/update/{id}", method = RequestMethod.PUT)
     public ResponseEntity<Orders> updateOrder(@PathVariable("id") long id, @RequestBody Orders orders) {
         System.out.println("Updating Orders " + id);
         Orders currentOrder = service.findById(id);
@@ -60,7 +60,7 @@ public class OrderPage {
         return new ResponseEntity<Orders>(updatedOrders, HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/orders/delete/{id}", method = RequestMethod.DELETE)
+    @RequestMapping(value = "orders/delete/{id}", method = RequestMethod.DELETE)
     public ResponseEntity<Orders> deleteOrder(@PathVariable("id") long id) {
         System.out.println("Fetching & Deleting Order with id " + id);
 

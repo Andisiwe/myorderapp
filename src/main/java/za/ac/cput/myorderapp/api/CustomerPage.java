@@ -23,7 +23,7 @@ public class CustomerPage {
     @Autowired
     private CustomerService service;
 
-    @RequestMapping(value = "/customer", method = RequestMethod.GET)
+    @RequestMapping(value = "customer", method = RequestMethod.GET)
     public ResponseEntity<List<Customer>> listAllCustomers(){
         List<Customer> Customers = service.findAll();
         if(Customers.isEmpty()){
@@ -32,17 +32,17 @@ public class CustomerPage {
         return new ResponseEntity<List<Customer>>(Customers, HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/Customer/create", method = RequestMethod.POST)
+    @RequestMapping(value = "customer/create", method = RequestMethod.POST)
     public ResponseEntity<Void> createCustomer(@RequestBody Customer customer, UriComponentsBuilder ucBuilder) {
         System.out.println("Creating Customer " + customer.getName());
         service.save(customer);
 
         HttpHeaders headers = new HttpHeaders();
-        headers.setLocation(ucBuilder.path("/customer/{id}").buildAndExpand(customer.getId()).toUri());
+        headers.setLocation(ucBuilder.path("customer/{id}").buildAndExpand(customer.getId()).toUri());
         return new ResponseEntity<Void>(headers, HttpStatus.CREATED);
     }
 
-    @RequestMapping(value = "/Customer/update/{id}", method = RequestMethod.PUT)
+    @RequestMapping(value = "customer/update/{id}", method = RequestMethod.PUT)
     public ResponseEntity<Customer> updateCustomer(@PathVariable("id") long id, @RequestBody Customer customer) {
         System.out.println("Updating Customer " + id);
         Customer currentCustomer = service.findById(id);
@@ -59,7 +59,7 @@ public class CustomerPage {
         return new ResponseEntity<Customer>(updatedCustomer, HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/customer/delete/{id}", method = RequestMethod.DELETE)
+    @RequestMapping(value = "customer/delete/{id}", method = RequestMethod.DELETE)
     public ResponseEntity<Customer> deleteBase(@PathVariable("id") long id) {
         System.out.println("Fetching & Deleting Customer with id " + id);
 

@@ -19,12 +19,12 @@ import java.util.List;
  * Created by Andies on 2015-05-21.
  */
 @RestController
-@RequestMapping(value = "/topping/**")
+@RequestMapping(value = "/api/**")
 public class ToppingPage {
     @Autowired
     private ToppingService service;
 
-    @RequestMapping(value = "/topping", method = RequestMethod.GET)
+    @RequestMapping(value = "topping", method = RequestMethod.GET)
     public ResponseEntity<List<Topping>> listAllToppings(){
         List<Topping> Toppings = service.findAll();
         if(Toppings.isEmpty()){
@@ -33,17 +33,17 @@ public class ToppingPage {
         return new ResponseEntity<List<Topping>>(Toppings, HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/topping/create", method = RequestMethod.POST)
+    @RequestMapping(value = "topping/create", method = RequestMethod.POST)
     public ResponseEntity<Void> createBase(@RequestBody Topping topping, UriComponentsBuilder ucBuilder) {
         System.out.println("Creating Topping " + topping.getToppingName());
         service.save(topping);
 
         HttpHeaders headers = new HttpHeaders();
-        headers.setLocation(ucBuilder.path("/topping/{id}").buildAndExpand(topping.getTop_code()).toUri());
+        headers.setLocation(ucBuilder.path("topping/{id}").buildAndExpand(topping.getTop_code()).toUri());
         return new ResponseEntity<Void>(headers, HttpStatus.CREATED);
     }
 
-    @RequestMapping(value = "/topping/update/{id}", method = RequestMethod.PUT)
+    @RequestMapping(value = "topping/update/{id}", method = RequestMethod.PUT)
     public ResponseEntity<Topping> updateTopping(@PathVariable("id") long id, @RequestBody Topping topping) {
         System.out.println("Updating Topping " + id);
         Topping currentTopping = service.findById(id);
@@ -60,7 +60,7 @@ public class ToppingPage {
         return new ResponseEntity<Topping>(updatedTopping, HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/topping/delete/{id}", method = RequestMethod.DELETE)
+    @RequestMapping(value = "topping/delete/{id}", method = RequestMethod.DELETE)
     public ResponseEntity<Topping> deleteBase(@PathVariable("id") long id) {
         System.out.println("Fetching & Deleting Topping with id " + id);
 
