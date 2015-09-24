@@ -1,7 +1,5 @@
 package za.ac.cput.myorderapp.Domain;
 
-import org.junit.Before;
-import org.junit.Test;
 import za.ac.cput.myorderapp.conf.Factory.ToppingFactory;
 
 import java.util.ArrayList;

@@ -2,12 +2,7 @@ package za.ac.cput.myorderapp.Services;
 
 import org.junit.Assert;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
-import org.springframework.test.context.web.WebAppConfiguration;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Test;
-import za.ac.cput.myorderapp.App;
 import za.ac.cput.myorderapp.Domain.ContactAddress;
 import za.ac.cput.myorderapp.Domain.Customer;
 import za.ac.cput.myorderapp.Domain.CustomerContactsNos;
@@ -37,13 +32,13 @@ public class CustomerServiceTest extends AbstractTestNGSpringContextTests {
     private CustomerRepository repository;
     private Customer customer;
 
-  //  @BeforeMethod
+    //@BeforeMethod
     public void setUp() throws Exception {
 
 
     }
 
-    //@Test
+   // @Test
     public void create() throws Exception {
         Map<String, String> values = new HashMap<String, String>();
         values.put("name", "Andisiwe");
@@ -55,15 +50,20 @@ public class CustomerServiceTest extends AbstractTestNGSpringContextTests {
 
         ContactAddress contactAddress = AddressFactory.createAddress(address, 8001);
         CustomerContactsNos contactsNos = ContactsFactory.createContacts("082123", "021123");
+
+        Map<String,String>loginDetails = new HashMap<String,String>();
+        address.put("username", "andisiwe");
+        address.put("password", "peter");
+
         List<Orders> order = new ArrayList<>();
-        Customer customer = CustomerFactory.createCustomer(values,"andisiwe","peter",contactAddress, contactsNos,order);
+        Customer customer = CustomerFactory.createCustomer(values,loginDetails,contactAddress, contactsNos,order);
         repository.save(customer);
         id = customer.getId();
         Assert.assertNotNull(customer.getId());
 
     }
 
-    //@Test
+   // @Test
     public void testGetCustomerInfo() throws Exception {
         List<Customer> customer = service.findAll();
         Assert.assertNotNull(customer);

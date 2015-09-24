@@ -12,12 +12,12 @@ import java.util.Map;
  * Created by student on 2015/04/25.
  */
 public class CustomerFactory {
-    public static Customer createCustomer(Map<String, String> values, String username, String password, ContactAddress address,
+    public static Customer createCustomer(Map<String, String> values, Map<String, String> loginDetails, ContactAddress address,
                                           CustomerContactsNos contactsNos, List<Orders> order){
         Customer customer = new Customer.Builder(values.get("name"))
                 .surname(values.get("surname"))
-                .username(username)
-                .password(password)
+                .username(loginDetails.get("username"))
+                .password(loginDetails.get("password"))
                 .address(address)
                 .contactNos(contactsNos)
                 .order(order)

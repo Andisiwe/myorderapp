@@ -2,11 +2,7 @@ package za.ac.cput.myorderapp.Repository;
 
 import org.junit.Assert;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
-import org.springframework.test.context.web.WebAppConfiguration;
-import org.testng.annotations.Test;
-import za.ac.cput.myorderapp.App;
 import za.ac.cput.myorderapp.Domain.Base;
 import za.ac.cput.myorderapp.Domain.Pizza;
 import za.ac.cput.myorderapp.conf.Factory.BaseFactory;
@@ -25,7 +21,7 @@ public class TestCrudBase extends AbstractTestNGSpringContextTests {
     @Autowired
     private BaseRepository repository;
 
-    //@Test
+   // @Test
     public void create() throws Exception {
         List<Pizza>pizzas = new ArrayList<>();
         Base base = BaseFactory.createBase("Large", 60, pizzas);
@@ -42,7 +38,7 @@ public class TestCrudBase extends AbstractTestNGSpringContextTests {
         Assert.assertEquals("Large", base.getPizzaSize());
     }
 
-  //  @Test(dependsOnMethods = "read")
+   // @Test(dependsOnMethods = "read")
     public void update() throws Exception {
         Base base = repository.findOne(id);
         Base newBase = new Base.Builder(base.getPizzaSize())

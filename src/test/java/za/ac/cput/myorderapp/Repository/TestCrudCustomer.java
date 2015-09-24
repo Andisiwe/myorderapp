@@ -2,12 +2,7 @@ package za.ac.cput.myorderapp.Repository;
 
 import org.junit.Assert;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
-import org.springframework.test.context.web.WebAppConfiguration;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Test;
-import za.ac.cput.myorderapp.App;
 import za.ac.cput.myorderapp.Domain.ContactAddress;
 import za.ac.cput.myorderapp.Domain.Customer;
 import za.ac.cput.myorderapp.Domain.CustomerContactsNos;
@@ -15,7 +10,6 @@ import za.ac.cput.myorderapp.Domain.Orders;
 import za.ac.cput.myorderapp.conf.Factory.AddressFactory;
 import za.ac.cput.myorderapp.conf.Factory.ContactsFactory;
 import za.ac.cput.myorderapp.conf.Factory.CustomerFactory;
-import za.ac.cput.myorderapp.conf.Factory.OrderFactory;
 
 import java.util.*;
 
@@ -47,13 +41,18 @@ public class TestCrudCustomer extends AbstractTestNGSpringContextTests {
         address.put("physicalAddress", "18 Harrington street");
         address.put("postalAddress", "P. O. BOX 10");
 
+        Map<String,String>loginDetails = new HashMap<String,String>();
+        loginDetails.put("username", "andisiwe");
+        loginDetails.put("password", "peter");
+
+
         Date date = new Date();
 
         ContactAddress contactAddress = AddressFactory.createAddress(address, 8001);
         CustomerContactsNos contactsNos = ContactsFactory.createContacts("082123", "021123");
        // Orders orders = OrderFactory.createOrder("10-MAY-15");
         List<Orders> order = new ArrayList<>();
-        Customer customer = CustomerFactory.createCustomer(custDetails,"andisiwe", "peter", contactAddress, contactsNos,order);
+        Customer customer = CustomerFactory.createCustomer(custDetails,loginDetails, contactAddress, contactsNos,order);
 
         customerRepository.save(customer);
         id = customer.getId();
@@ -68,7 +67,7 @@ public class TestCrudCustomer extends AbstractTestNGSpringContextTests {
 
     }
 
-   // @Test(dependsOnMethods = "testRead")
+    //@Test(dependsOnMethods = "testRead")
     public void testUpdate() throws Exception {
         Customer customer = customerRepository.findOne(id);
 
@@ -80,13 +79,17 @@ public class TestCrudCustomer extends AbstractTestNGSpringContextTests {
         address.put("physicalAddress", "18 Harrington street");
         address.put("postalAddress", "P. O. BOX 10");
 
+        Map<String,String>loginDetails = new HashMap<String,String>();
+        loginDetails.put("username", "andisiwe");
+        loginDetails.put("password", "peter");
+
         Date date = new Date();
 
         ContactAddress contactAddress = AddressFactory.createAddress(address, 8001);
         CustomerContactsNos contactsNos = ContactsFactory.createContacts("082123", "021123");
         //Order order = OrderFactory.createOrder(date);*/
         List<Orders> order = new ArrayList<>();
-        Customer newCustomer = CustomerFactory.createCustomer(custDetails,"andisiwe", "peter", contactAddress, contactsNos,order);
+        Customer newCustomer = CustomerFactory.createCustomer(custDetails,loginDetails, contactAddress, contactsNos,order);
 
         customerRepository.save(newCustomer);
         Assert.assertEquals("Yamkela", newCustomer.getName());

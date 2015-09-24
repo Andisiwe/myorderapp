@@ -1,7 +1,7 @@
 package za.ac.cput.myorderapp.Domain;
 
-import org.junit.runner.RunWith;
-import org.junit.runners.Suite;
+//import org.junit.runner.RunWith;
+//import org.junit.runners.Suite;
 
 /**
  * Created by student on 2015/04/24.

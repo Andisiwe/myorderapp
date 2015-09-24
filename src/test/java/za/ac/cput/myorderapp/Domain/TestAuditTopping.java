@@ -1,19 +1,15 @@
 package za.ac.cput.myorderapp.Domain;
 
 import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
 import za.ac.cput.myorderapp.conf.Factory.AuditFactory;
 
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 /**
  * Created by Andies on 2015-05-14.
  */
 public class TestAuditTopping {
-    //@Before
+   // @Before
     public void setUp() throws Exception {
 
 

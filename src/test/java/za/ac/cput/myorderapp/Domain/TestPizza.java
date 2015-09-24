@@ -1,8 +1,6 @@
 package za.ac.cput.myorderapp.Domain;
 
 import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
 import za.ac.cput.myorderapp.conf.Factory.PizzaFactory;
 
 import java.util.ArrayList;

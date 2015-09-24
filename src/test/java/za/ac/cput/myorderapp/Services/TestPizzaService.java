@@ -2,12 +2,7 @@ package za.ac.cput.myorderapp.Services;
 
 import org.junit.Assert;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
-import org.springframework.test.context.web.WebAppConfiguration;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Test;
-import za.ac.cput.myorderapp.App;
 import za.ac.cput.myorderapp.Domain.Pizza;
 import za.ac.cput.myorderapp.Domain.Topping;
 import za.ac.cput.myorderapp.Repository.PizzaRepository;
@@ -31,7 +26,7 @@ public class TestPizzaService extends AbstractTestNGSpringContextTests {
     private PizzaRepository repository;
     private Pizza pizza;
 
-   // @BeforeMethod
+    //@BeforeMethod
     public void setUp() throws Exception {
 
 

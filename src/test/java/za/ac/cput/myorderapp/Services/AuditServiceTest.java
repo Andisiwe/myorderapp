@@ -2,18 +2,11 @@ package za.ac.cput.myorderapp.Services;
 
 import org.junit.Assert;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
-import org.springframework.test.context.web.WebAppConfiguration;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Test;
-import za.ac.cput.myorderapp.App;
 import za.ac.cput.myorderapp.Domain.AuditTopping;
-import za.ac.cput.myorderapp.Domain.Topping;
 import za.ac.cput.myorderapp.Repository.AuditToppingRepository;
 import za.ac.cput.myorderapp.conf.Factory.AuditFactory;
 
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -32,7 +25,7 @@ public class AuditServiceTest extends AbstractTestNGSpringContextTests {
     private AuditToppingRepository repository;
     private AuditTopping auditTopping;
 
-    //@BeforeMethod
+   // @BeforeMethod
     public void setUp() throws Exception {
 
 
@@ -50,7 +43,7 @@ public class AuditServiceTest extends AbstractTestNGSpringContextTests {
 
     }
 
-    //@Test(dependsOnMethods = "create")
+   // @Test(dependsOnMethods = "create")
     public void testGetAuditInfo() throws Exception {
         List<AuditTopping> auditTopping = service.findAll();
         Assert.assertNotNull(auditTopping);

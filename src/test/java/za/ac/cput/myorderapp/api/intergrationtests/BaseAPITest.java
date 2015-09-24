@@ -1,16 +1,8 @@
 package za.ac.cput.myorderapp.api.intergrationtests;
 
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.springframework.boot.test.IntegrationTest;
-import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.boot.test.TestRestTemplate;
 import org.springframework.http.ResponseEntity;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.web.client.RestTemplate;
-import za.ac.cput.myorderapp.App;
 import za.ac.cput.myorderapp.Domain.Base;
 
 import java.net.URI;
@@ -29,7 +21,7 @@ public class BaseAPITest {
     final String BASE_URL = "http://localhost:8080/";
     private RestTemplate template;
 
-    //@Before
+   // @Before
     public void setUp() throws Exception {
         template = new TestRestTemplate();
     }
@@ -46,7 +38,7 @@ public class BaseAPITest {
     public static final String REST_SERVICE_URI = "http://localhost:8080/api";
 
     /* GET */
-    //@SuppressWarnings("unchecked")
+    @SuppressWarnings("unchecked")
     private static void listAllSubjects(){
         System.out.println("Testing listAllBases API-----------");
 

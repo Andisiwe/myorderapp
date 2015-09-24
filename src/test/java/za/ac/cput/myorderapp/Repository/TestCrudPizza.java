@@ -2,18 +2,9 @@ package za.ac.cput.myorderapp.Repository;
 
 import org.junit.Assert;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
-import org.springframework.test.context.web.WebAppConfiguration;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Test;
-import za.ac.cput.myorderapp.App;
 import za.ac.cput.myorderapp.Domain.Pizza;
-import za.ac.cput.myorderapp.Domain.Topping;
 import za.ac.cput.myorderapp.conf.Factory.PizzaFactory;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by Andies on 2015-05-15.
@@ -26,13 +17,13 @@ public class TestCrudPizza extends AbstractTestNGSpringContextTests{
     @Autowired
     private PizzaRepository pizzaRepository;
 
-  //  @BeforeMethod
+    //@BeforeMethod
     public void setUp() throws Exception {
 
 
     }
 
-   // @Test
+    //@Test
     public void create() throws Exception {
        // List<Topping>toppings = new ArrayList<Topping>();
         Pizza pizza = PizzaFactory.createPizza("Something meaty", 60/*, toppings*/);
@@ -42,7 +33,7 @@ public class TestCrudPizza extends AbstractTestNGSpringContextTests{
 
     }
 
-    //@Test(dependsOnMethods = "create")
+   // @Test(dependsOnMethods = "create")
     public void read() throws Exception {
         Pizza pizza = pizzaRepository.findOne(id);
         Assert.assertNotNull(pizza.getPizza_no());
@@ -50,7 +41,7 @@ public class TestCrudPizza extends AbstractTestNGSpringContextTests{
 
     }
 
-    //@Test(dependsOnMethods = "read")
+   // @Test(dependsOnMethods = "read")
     public void update() throws Exception {
         Pizza pizza = pizzaRepository.findOne(id);
         Pizza newPizza = new Pizza.Builder(pizza.getName())

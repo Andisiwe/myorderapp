@@ -1,8 +1,6 @@
 package za.ac.cput.myorderapp.Domain;
 
 import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
 import za.ac.cput.myorderapp.conf.Factory.AddressFactory;
 
 import java.util.HashMap;
@@ -18,7 +16,7 @@ public class TestContactAddress {
 
     }
 
-    //@Test
+   // @Test
     public void testCreate() throws Exception {
         Map<String,String>values = new HashMap<String, String>();
         values.put("physicalAddress","18 Harrington street");
@@ -28,7 +26,6 @@ public class TestContactAddress {
         Assert.assertEquals(8001, contactAddress.getPostalCode());
 
     }
-
     //@Test
     public void testUpdate() throws Exception {
         Map<String,String>values = new HashMap<String, String>();

@@ -1,15 +1,10 @@
 package za.ac.cput.myorderapp.Domain;
 
 import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
 import za.ac.cput.myorderapp.conf.Factory.AddressFactory;
 import za.ac.cput.myorderapp.conf.Factory.ContactsFactory;
 import za.ac.cput.myorderapp.conf.Factory.CustomerFactory;
-import za.ac.cput.myorderapp.conf.Factory.OrderFactory;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.*;
 
 /**
@@ -23,7 +18,7 @@ public class TestCustomer {
 
     }
 
-    //@Test
+   // @Test
     public void testCreateCustomer() throws Exception {
         Map<String, String>addr = new HashMap<String, String>();
         addr.put("physicalAddress", "18 Harrington street");
@@ -37,15 +32,19 @@ public class TestCustomer {
 
         ContactAddress address = AddressFactory.createAddress(addr, 8001);
         CustomerContactsNos contactsNos = ContactsFactory.createContacts("12345", "67890");
+
+        Map<String,String>loginDetails = new HashMap<String,String>();
+        loginDetails.put("username", "andisiwe");
+        loginDetails.put("password", "peter");
        // Order order = OrderFactory.createOrder(date);*/
         List<Orders> ordersList = new ArrayList<>();
 
-        Customer customer = CustomerFactory.createCustomer(custDetails, "andisiwe", "peter", address, contactsNos, ordersList);// address, contactsNos,order);
+        Customer customer = CustomerFactory.createCustomer(custDetails, loginDetails, address, contactsNos, ordersList);// address, contactsNos,order);
         Assert.assertEquals("Andisiwe", customer.getName());
 
     }
 
-   // @Test
+    //@Test
     public void testUpdatedCustomer() throws Exception {
         Map<String, String>addr = new HashMap<String, String>();
         addr.put("physicalAddress", "18 Harrington street");
@@ -55,6 +54,10 @@ public class TestCustomer {
         custDetails.put("name","Andisiwe");
         custDetails.put("surname", "Peter");
 
+        Map<String,String>loginDetails = new HashMap<String,String>();
+        loginDetails.put("username", "andisiwe");
+        loginDetails.put("password", "peter");
+
         Date date = new Date();
         System.out.println(date);
 
@@ -63,7 +66,7 @@ public class TestCustomer {
        // Orders order = OrderFactory.createOrder(date);
         List<Orders> ordersList = new ArrayList<>();
 
-        Customer customer = CustomerFactory.createCustomer(custDetails,"andisiwe", "peter", address, contactsNos, ordersList);// address, contactsNos,order);
+        Customer customer = CustomerFactory.createCustomer(custDetails,loginDetails, address, contactsNos, ordersList);// address, contactsNos,order);
 
         Customer newCustomer = new Customer.Builder("Andisiwe")
                                             .copy(customer)
